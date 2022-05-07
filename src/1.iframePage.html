@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>iframePage</title>
+</head>
+<body style="border:5px solid #333;">
+
+  <h1>this is iframePage</h1>
+  <script src="./1.RPCMessageEvent.js"></script>
+
+  <script>
+    
+    const childEvent = new RPCMessageEvent({
+        currentEndpoint: window,
+        targetEndpoint: window.top,
+        targetOrigin: 'http://127.0.0.1:5500',
+        config: 'child'
+    });
+    debugger
+    childEvent.invoke('add', {a:1, b:2}).then(res=>{
+      debugger
+    })
+    // childEvent.on('test', () => console.log('test'));
+    // childEvent.on('max', (a, b) => Math.max(a, b));
+    // childEvent.off('max');
+  </script>
+</body>
+</html>
